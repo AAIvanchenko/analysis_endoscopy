@@ -37,7 +37,7 @@ def save_img_augment(img_dict_augment):
         count_img = 0
         for img in img_dict_augment[key]:
             # print('../data/'+ key + '/' + str(count_img) +'_vflip.jpg')
-            cv.imwrite('../data/'+ key + '/' + str(count_img) +'_vflip.jpg', img)
+            cv.imwrite('../data/features'+ key + '/' + str(count_img) +'_vflip.jpg', img)
             count_img += 1
 
 if __name__ == '__main__':
