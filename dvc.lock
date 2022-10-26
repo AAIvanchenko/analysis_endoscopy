@@ -42,3 +42,19 @@ stages:
     - path: models/model_best.pt
       md5: 10ee08aa9801eca28bb8aea68431a714
       size: 248154516
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/prepared/test.csv
+      md5: a5a7ac61fe38d498ffc6999ce2b7439d
+      size: 11718
+    - path: models/model_best.pt
+      md5: 10ee08aa9801eca28bb8aea68431a714
+      size: 248154516
+    - path: src/evaluate.py
+      md5: 7b55dec3316332e9f75fec566b8cd157
+      size: 936
+    outs:
+    - path: metrics/los_auc_f1.json
+      md5: 8780e096049a4d0c2f2c38a6fbfa0553
+      size: 35
