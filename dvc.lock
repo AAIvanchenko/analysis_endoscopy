@@ -33,12 +33,12 @@ stages:
       md5: b38f2cf2fac8c46c58dc42595d207c59
       size: 2201
     - path: src/fit.py
-      md5: b19c620d52abd8da32a667f241fcc6c7
-      size: 3706
+      md5: 81d75dc3b4b5db4a3ff293dbf6d53e24
+      size: 3812
     - path: src/train.py
-      md5: 7e4d4f81a79e3a564141ca7966e8fc49
-      size: 2266
+      md5: 814e27a4ff8bc3dd83edf0af019d46dd
+      size: 2118
     outs:
     - path: models/model_best.pt
-      md5: 1d944bc9fc25f1458ff7ce4842245fcf
-      size: 161448895
+      md5: 10ee08aa9801eca28bb8aea68431a714
+      size: 248154516
