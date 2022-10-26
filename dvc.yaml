@@ -5,4 +5,6 @@ stages:
     - data/original
     - src/prepare.py
     outs:
-    - data/prepared
+    - data/prepared/test.csv
+    - data/prepared/train.csv
+    - data/prepared/valid.csv
