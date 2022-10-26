@@ -43,7 +43,7 @@ def count_metrics(data_dl, device, model, count_loss = False):
     return accuracies, f1_sc, losses
 
 
-def fit(epochs, model, loss_func, opt, train_dl, valid_dl,device, name_model, lr_scale = 0.01):
+def fit(epochs, model, loss_func, opt, train_dl, valid_dl,device, lr_scale = 0.01):
     """
     Обучение модели.
 

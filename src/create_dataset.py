@@ -16,7 +16,7 @@ class CreateDataset(Dataset):
 
     def __init__(self, data_frame, transform: transforms.Compose = None):
         
-        self.list_classes = data_frame['label'].to_list()
+        self.list_classes = data_frame['labels'].to_list()
         self.img_path_list = data_frame['paths'].to_list()
         self.transform = transform
         self.img_list = []
@@ -44,7 +44,13 @@ class CreateDataset(Dataset):
         :img_path: путь до картинки
         :return: картинка, состаящая из массива цифр
         """
-        img = cv.imread(img_path)
+        f = open(img_path, "rb");
+        chunk = f.read()
+        chunk_arr = np.frombuffer(chunk, dtype=np.uint8)
+        img = cv.imdecode(chunk_arr, cv.IMREAD_COLOR)
+        # img = cv.imread(img_path)
+        # print(img_path)
+        # print(img)
         img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
         img = np.array(img)
         return img

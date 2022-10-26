@@ -22,19 +22,21 @@ class Model(nn.Module):
         self.bn2 = nn.BatchNorm2d(16)
         self.conv3 = nn.Conv2d(16, 32, 5, stride = 2, padding = 1)
         self.bn3 = nn.BatchNorm2d(32)
-        self.fc1 = nn.Linear(32 * 13 * 13, 256)
+        self.fc1 = nn.Linear(7200, 5408)
+        self.fc2 = nn.Linear(32 * 13 * 13, 256)
         self.bn4 = nn.BatchNorm1d(256)
-        self.fc2 = nn.Linear(256, 64)
-        self.fc3 = nn.Linear(64, 2)
+        self.fc3 = nn.Linear(256, 64)
+        self.fc4 = nn.Linear(64, 2)
 
     def forward(self, x):
         x = self.bn1(F.max_pool2d(F.relu(self.conv1(x)), 2))
         x = self.bn2(F.max_pool2d(F.relu(self.conv2(x)), 2))
         x = self.bn3(F.max_pool2d(F.relu(self.conv3(x)), 2))
         x = x.view(x.shape[0], -1)
-        x = self.bn4(F.relu(self.fc1(x)))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
+        x = F.relu(self.fc1(x))
+        x = self.bn4(F.relu(self.fc2(x)))
+        x = F.relu(self.fc3(x))
+        x = self.fc4(x)
         return x
 
 
@@ -51,8 +53,7 @@ if __name__ == '__main__':
   
     train_losses, val_losses, val_accur, val_f1 = fit(10, model, loss_fn,
                                                       optimizer,
-                                                      train_dl, valid_dl,
-                                                      device)
+                                                      train_dl, valid_dl,device)
     
     # metrics = {"train_losses": train_losses,
     #            "val_losses": val_losses,

@@ -11,7 +11,7 @@ FILE = Path(__file__).resolve()
 ROOT = FILE.parents[1] # program ROOT
 
 if __name__ == "__main__":
-    test_csv_path =  root_dir = Path(ROOT, 'data', 'prepared', 'test.csv')
+    test_csv_path = Path(ROOT, 'data', 'prepared', 'test.csv')
     test_dl = create_dataloader(test_csv_path)
     
     model = Model() # как правильно загрузить модель?
