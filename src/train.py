@@ -2,9 +2,15 @@ import torch
 from torch import nn
 import torch.optim as optim
 import torch.nn.functional as F
-import json
+
 from create_dataset import create_dataloader
 from fit import fit
+
+from pathlib import Path
+
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[1] # program ROOT
+
 
 class Model(nn.Module):
     def __init__(self):
@@ -35,8 +41,8 @@ class Model(nn.Module):
 if __name__ == '__main__':
     device = torch.device("cuda") if torch.cuda.is_available else torch.device("cpu")
     
-    train_dl = create_dataloader('..data/prepared/train.csv')
-    valid_dl = create_dataloader('..data/prepared/valid.csv')
+    train_dl = create_dataloader(Path(ROOT, 'data', 'prepared', 'train.csv'))
+    valid_dl = create_dataloader(Path(ROOT, 'data', 'prepared', 'valid.csv'))
     
     model = Model().to(device)
     

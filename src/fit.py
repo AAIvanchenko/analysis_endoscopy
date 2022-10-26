@@ -33,13 +33,12 @@ def count_metrics(data_dl, device, model, count_loss = False):
      
     
     losses = (loss_sum / len(data_dl)) if count_loss else None
-    print("loss: ", losses)
-
     
     accuracies = 100*correct / num
-    print("accuracies: ", accuracies)
     
-    print("f1: ", f1_sc)
+    # print("accuracies: ", accuracies)
+    # print("loss: ", losses)
+    # print("f1: ", f1_sc)
     
     return accuracies, f1_sc, losses
 

@@ -1,6 +1,9 @@
 import cv2 as cv
 import os
+from pathlib import Path
 
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[1] # program ROOT
 
 def rotate(img_dict, angle=90, scale=1.0):
     '''
@@ -43,7 +46,7 @@ def save_img_augment(img_dict_augment):
 if __name__ == '__main__':
     
     # считать все картинки
-    root_dir = '../data/'
+    root_dir = Path(ROOT, 'data', 'original')
     list_classes = list(sorted(os.listdir(root_dir)))
     img_dict = {list_classes[0]:[],
                 list_classes[1]:[]}
