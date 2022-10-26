@@ -8,3 +8,13 @@ stages:
     - data/prepared/test.csv
     - data/prepared/train.csv
     - data/prepared/valid.csv
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/prepared/train.csv
+    - data/prepared/valid.csv
+    - src/create_dataset.py
+    - src/fit.py
+    - src/train.py
+    outs:
+    - models/model_best.pt

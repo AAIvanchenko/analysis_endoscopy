@@ -20,3 +20,25 @@ stages:
     - path: data/prepared/valid.csv
       md5: a8e27f6f1bee9f5ec26fea580b3c6307
       size: 21090
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/prepared/train.csv
+      md5: f80fc141f0a654427b96e0d8547eadd8
+      size: 84234
+    - path: data/prepared/valid.csv
+      md5: a8e27f6f1bee9f5ec26fea580b3c6307
+      size: 21090
+    - path: src/create_dataset.py
+      md5: b38f2cf2fac8c46c58dc42595d207c59
+      size: 2201
+    - path: src/fit.py
+      md5: b19c620d52abd8da32a667f241fcc6c7
+      size: 3706
+    - path: src/train.py
+      md5: 7e4d4f81a79e3a564141ca7966e8fc49
+      size: 2266
+    outs:
+    - path: models/model_best.pt
+      md5: 1d944bc9fc25f1458ff7ce4842245fcf
+      size: 161448895
