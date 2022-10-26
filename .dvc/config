@@ -1,0 +1,4 @@
+[core]
+    remote = dvc_lerning
+['remote "dvc_lerning"']
+    url = /tmp/dvcstore

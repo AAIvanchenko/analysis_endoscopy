@@ -20,8 +20,11 @@ def count_metrics(data_dl, device, model, count_loss = False):
         for target in tqdm(data_dl):
             xb, yb = target['image'].to(device),\
                      target['target'].to(device)
-
-            probs = model(xb)
+            
+            if count_loss:
+                probs = model(xb)
+            else:
+                probs = model(xb.float())
             
             if count_loss:
                 loss_sum += loss_func(probs, yb).item()
