@@ -106,7 +106,7 @@ def fit(epochs, model, loss_func, opt, train_dl, valid_dl,device, name_model, lr
         if val_f1[-1] > best_fitness:
             best_fitness = val_f1[-1]
        
-            torch.save(model.state_dict(), Path(ROOT, 'models', name_model + '.pt'))
+            torch.save(model.state_dict(), Path(ROOT, 'models', 'model_best.pt'))
         
     return train_losses, val_losses, val_accur, val_f1
 

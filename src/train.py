@@ -52,7 +52,7 @@ if __name__ == '__main__':
     train_losses, val_losses, val_accur, val_f1 = fit(10, model, loss_fn,
                                                       optimizer,
                                                       train_dl, valid_dl,
-                                                      device, 'ModelCNN_3l')
+                                                      device)
     
     # metrics = {"train_losses": train_losses,
     #            "val_losses": val_losses,

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     test_dl = create_dataloader(test_csv_path)
     
     model = Model() # как правильно загрузить модель?
-    model.load_state_dict(torch.load(Path(ROOT, 'models', 'ModelCNN_3l.pt')))
+    model.load_state_dict(torch.load(Path(ROOT, 'models', 'model_best.pt')))
     
     device = torch.device("cuda") if torch.cuda.is_available else torch.device("cpu")
     accur, f1_sc, _ = count_metrics(test_dl, device, model)
