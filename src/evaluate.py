@@ -1,9 +1,10 @@
-from joblib import load
 import json
 import torch
 
-from train import create_dataloader
+from create_dataset import create_dataloader
+from train import Model
 from fit import count_metrics
+
 from pathlib import Path
 
 FILE = Path(__file__).resolve()
@@ -13,7 +14,9 @@ if __name__ == "__main__":
     test_csv_path =  root_dir = Path(ROOT, 'data', 'prepared', 'test.csv')
     test_dl = create_dataloader(test_csv_path)
     
-    model = load("model/model.joblib") # как правильно загрузить модель?
+    model = Model() # как правильно загрузить модель?
+    model.load_state_dict(torch.load(Path(ROOT, 'models', 'ModelCNN_3l.pt')))
+    
     device = torch.device("cuda") if torch.cuda.is_available else torch.device("cpu")
     accur, f1_sc, _ = count_metrics(test_dl, device, model)
    
