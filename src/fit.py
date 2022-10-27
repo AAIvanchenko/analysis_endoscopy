@@ -104,9 +104,9 @@ def fit(epochs, model, loss_func, opt, train_dl, valid_dl,device, lr_scale = 0.0
         val_accur.append(accuracies_val)
         
         print("valid f1: ", f1_sc)
-        val_f1.append(f1_sc)
+        val_f1.append(f1_sc.item())
         
-        if val_f1[-1] > best_fitness:
+        if val_f1[-1] > best_fitness and best_fitness != 1:
             best_fitness = val_f1[-1]
        
             torch.save(model.state_dict(), Path(ROOT, 'models', 'model_best.pt'))
