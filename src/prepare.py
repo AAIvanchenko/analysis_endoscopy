@@ -54,8 +54,8 @@ def train_test_split_(df_img_label):
 
 def save_as_csv(train, valid, test):
     save_dir = Path(ROOT, 'data', 'prepared')
-    print('----------')
-    print(save_dir)
+    # print('----------')
+    # print(save_dir)
     train.to_csv(Path(save_dir, 'train.csv'), index=False)
     valid.to_csv(Path(save_dir, 'valid.csv'), index=False)
     test.to_csv(Path(save_dir, 'test.csv'), index=False)

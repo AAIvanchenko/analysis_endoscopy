@@ -2,7 +2,7 @@ import torch
 from torch import nn
 import torch.optim as optim
 import torch.nn.functional as F
-
+import os
 from create_dataset import create_dataloader
 from fit import fit
 
@@ -18,10 +18,10 @@ class Model(nn.Module):
         # 1 input image channel, 6 output channels, 3x3 square conv kernel
         self.conv1 = nn.Conv2d(3, 8, 3)
         self.bn1 = nn.BatchNorm2d(8)
-        self.conv2 = nn.Conv2d(8, 8, 3)
-        self.bn2 = nn.BatchNorm2d(8)
-        self.fc1 = nn.Linear(30752, 2000)
-        self.fc2 = nn.Linear(2000, 256)
+        self.conv2 = nn.Conv2d(8, 4, 3)
+        self.bn2 = nn.BatchNorm2d(4)
+        self.fc1 = nn.Linear(15376, 500)
+        self.fc2 = nn.Linear(500, 256)
         self.bn4 = nn.BatchNorm1d(256)
         self.fc3 = nn.Linear(256, 64)
         self.fc4 = nn.Linear(64, 2)
@@ -39,6 +39,7 @@ class Model(nn.Module):
 
 if __name__ == '__main__':
     torch.cuda.empty_cache()
+    os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
     device = torch.device("cuda") if torch.cuda.is_available else torch.device("cpu")
     
     train_dl = create_dataloader(Path(ROOT, 'data', 'prepared', 'train.csv'))
