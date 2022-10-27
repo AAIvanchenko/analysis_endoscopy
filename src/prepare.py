@@ -63,8 +63,8 @@ def save_as_csv(train, valid, test):
 
 if __name__ == '__main__':
     
-    # list_root_dir = [Path(ROOT, 'data', 'original'), Path(ROOT, 'data', 'augmentetion')]
-    list_root_dir = [Path(ROOT, 'data', 'original')]
+    list_root_dir = [Path(ROOT, 'data', 'original'), Path(ROOT, 'data', 'augmentetion')]
+    # list_root_dir = [Path(ROOT, 'data', 'original')]
     
     df_res = get_files_and_labels(list_root_dir)
     train, valid, test = train_test_split_(df_res)

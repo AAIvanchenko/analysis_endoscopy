@@ -1,8 +1,16 @@
 stages:
+  augment:
+    cmd: python src/augmentetion.py
+    deps:
+    - data/original
+    - src/augmentetion.py
+    outs:
+    - data/augmentetion
   prepare:
     cmd: python src/prepare.py
     deps:
     - data/original
+    - data/augmentetion
     - src/prepare.py
     - src/create_dataset.py
     outs:
