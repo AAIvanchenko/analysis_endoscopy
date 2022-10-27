@@ -36,12 +36,12 @@ stages:
       md5: 5404af72405c66e24ec691fc9ee95844
       size: 3841
     - path: src/train.py
-      md5: 814e27a4ff8bc3dd83edf0af019d46dd
-      size: 2118
+      md5: 61de1962717b9f0536aa3b809a9d557c
+      size: 1883
     outs:
     - path: models/model_best.pt
-      md5: 90324be52add00c9fb8cb8637b597ccb
-      size: 248154516
+      md5: 9cd87e052994e7c5f446009af0d332ea
+      size: 28633543
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -49,12 +49,12 @@ stages:
       md5: a5a7ac61fe38d498ffc6999ce2b7439d
       size: 11718
     - path: models/model_best.pt
-      md5: 90324be52add00c9fb8cb8637b597ccb
-      size: 248154516
+      md5: 9cd87e052994e7c5f446009af0d332ea
+      size: 28633543
     - path: src/evaluate.py
       md5: 7b55dec3316332e9f75fec566b8cd157
       size: 936
     outs:
     - path: metrics/los_auc_f1.json
-      md5: 7631f2742cc1f8b9c73bd59f256bf102
-      size: 50
+      md5: e77b7b4da6fc22999a3770f3255d7829
+      size: 35
