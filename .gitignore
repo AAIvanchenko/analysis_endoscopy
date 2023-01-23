@@ -131,3 +131,7 @@ dmypy.json
 #data
 data_prep/
 data/augmentetion/
+
+#models
+models/*.pt
+models/tendorboard
